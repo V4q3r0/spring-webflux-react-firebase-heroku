@@ -1,5 +1,11 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
 body {
     margin: 0;
+    margin-bottom: 20%;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -11,6 +17,7 @@ body {
   
   nav {
     display: flex;
+    align-items: center;
     padding: 2rem 0;
     background: #111;
   }
@@ -86,10 +93,17 @@ body {
   }
   
   .answer {
+    align-items: center;
+    display: flex;
+    padding: 2em 0;
     background: #f0f0f0;
     border-radius: 4px;
     padding: 1rem 1.5rem;
     margin: 1rem 0;
+  }
+
+  .answer section {
+
   }
   
   .button {
@@ -105,3 +119,23 @@ body {
     float: right;
   }
   
+  /* estilos footer */
+
+  footer {
+    position: absolute;
+    display: flex;
+    padding: 2rem 0;
+    background: #111;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+  }
+
+  .icon-redSocial img{
+    cursor: pointer;
+  }
+
+  .legal:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
