@@ -15,6 +15,7 @@ const OwnerQuestionsPage = ({ dispatch, loading, questions, hasErrors, redirect,
         }
     }, [redirect, dispatch, userId]);
 
+
     const onDelete = (id) => {
         dispatch(deleteQuestion(id))
     }

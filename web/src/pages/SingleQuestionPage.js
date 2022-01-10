@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchQuestion } from '../actions/questionActions'
+import { deleteAnswer, fetchQuestion } from '../actions/questionActions'
 import { Question } from '../components/Question'
 import { Answer } from '../components/Answer'
 import { Link } from 'react-router-dom'
@@ -17,6 +17,10 @@ const SingleQuestionPage = ({
   useEffect(() => {
     dispatch(fetchQuestion(id))
   }, [dispatch, id])
+  
+  const onDelete = (id, questionId) => {
+    dispatch(deleteAnswer(id, questionId)); 
+  }
 
   const renderQuestion = () => {
     if (loading.question) return <p>Loading question...</p>
@@ -26,8 +30,8 @@ const SingleQuestionPage = ({
   }
 
   const renderAnswers = () => {
-    return (question.answers && question.answers.length) ? question.answers.filter(answer => answer.position).map(answer => (
-      <Answer key={answer.id} answer={answer} />
+    return (question.answers && question.answers.length) ? question.answers.map(answer => (
+      <Answer key={answer.id} answer={answer} userId={userId} questionId={question.id} onDelete={onDelete} />
     )) : <p>Empty answer!</p>;
   }
 
