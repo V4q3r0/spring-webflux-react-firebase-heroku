@@ -6,7 +6,7 @@ export const Answer = ({ answer }) => (
       <p style={{textAling: 'left'}}>{answer.answer}</p>
     </section>
     <section>
-      <button>Votar</button>
+      <button>{answer.position}</button>
     </section>
   </aside>
 )

@@ -5,6 +5,7 @@ import { fetchQuestions } from '../actions/questionActions'
 import { Question } from '../components/Question'
 
 const QuestionsPage = ({ dispatch, loading, questions, hasErrors }) => {
+
     useEffect(() => {
         dispatch(fetchQuestions())
     }, [dispatch])

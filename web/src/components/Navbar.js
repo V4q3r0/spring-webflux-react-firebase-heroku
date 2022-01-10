@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const PublicNavbar = () => (
   <nav>
-    <section>
-      {/*<img style={{width: '80px', height: '50px'}} src='https://impactagroup.es/wp-content/uploads/2020/03/preguntas-respuestas-1.jpg' />*/}
+    <section className='logo'>
+      <img src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/000000/external-question-online-learning-vitaliy-gorbachev-blue-vitaly-gorbachev.png"/>
     </section>
     <section>
       
@@ -16,14 +16,19 @@ export const PublicNavbar = () => (
 
 export const PrivateNavbar = () => (
   <nav>
-    <section>
-      {/*<img style={{width: '100px', height: '70px'}} src="../public/images/logo.jpg" />*/}
+    <section className='logo'>
+    <img src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/000000/external-question-online-learning-vitaliy-gorbachev-blue-vitaly-gorbachev.png"/>
     </section>
     <section>
       <Link to="/">Home</Link>
       <Link to="/questions">Questions</Link>
       <Link to="/new">New</Link>
       <Link to="/list">List</Link>
+    </section>
+    <section className='profile'>
+      <Link to={"/profile"}>
+        <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/64/000000/external-user-management-kiranshastry-lineal-color-kiranshastry-20.png"/>
+      </Link>
     </section>
   </nav>
 )

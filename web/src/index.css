@@ -25,11 +25,22 @@ body {
   nav section {
     width: 100%;
   }
+
+  nav .logo {
+    width: 100px;
+    height: 50px;
+    margin-right: 25%;
+    margin-left: 5%;
+  }
   
   nav a {
     font-weight: 700;
     padding: 1rem 1.5rem;
     border-radius: 4px;
+  }
+
+  nav .profile {
+    margin-left: 25%;
   }
   
   nav a:first-of-type {
@@ -138,4 +149,27 @@ body {
   .legal:hover{
     cursor: pointer;
     text-decoration: underline;
+  }
+
+  /* estilos perfil de usuario */
+
+  .data-profile form{
+    margin: 2%;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .data-profile form img {
+    height: 20%;
+    width: 20%;
+    border-radius: 50%;
+  }
+
+  .data-profile label {
+    margin: 3%
+  }
+
+  .data-profile input {
+    width: 60%;
+    right: 0;
   }

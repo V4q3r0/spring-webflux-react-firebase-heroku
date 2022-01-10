@@ -26,7 +26,7 @@ const SingleQuestionPage = ({
   }
 
   const renderAnswers = () => {
-    return (question.answers && question.answers.length) ? question.answers.map(answer => (
+    return (question.answers && question.answers.length) ? question.answers.filter(answer => answer.position).map(answer => (
       <Answer key={answer.id} answer={answer} />
     )) : <p>Empty answer!</p>;
   }

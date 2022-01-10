@@ -5,9 +5,6 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
 import { login, logout } from './actions/authActions';
 
 import { PublicNavbar, PrivateNavbar } from './components/Navbar'
@@ -17,17 +14,10 @@ import QuestionsPage from './pages/QuestionsPage'
 import QuestionFormPage from './pages/QuestionFormPage'
 import AnswerFormPage from './pages/AnswerFormPage'
 import OwnerQuestionsPage from './pages/OwnerQuestionsPage'
-import { useAuthState } from "react-firebase-hooks/auth";
+import Profile from './pages/Profile'
 import { Footer } from './components/Footer';
-
-firebase.initializeApp({
-  apiKey: "AIzaSyA_xjBCFXeS0uAiUfBqhcMK-jpPuc6IfEo",
-  authDomain: "preguntados-8543c.firebaseapp.com",
-  projectId: "preguntados-8543c",
-  storageBucket: "preguntados-8543c.appspot.com",
-  messagingSenderId: "268094930455",
-  appId: "1:268094930455:web:149a7294dbeac93b242652"
-});
+import firebase from './firebase/firebase_config'
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const auth = firebase.auth();
 
@@ -45,6 +35,7 @@ const App = ({ dispatch }) => {
             <Route exact path="/" component={() => {
               return <HomePage><SignOut dispatch={dispatch} /></HomePage>
             }} />
+            <Route exact path="/profile" component={Profile} />
             <Route exact path="/questions" component={QuestionsPage} />
             <Route exact path="/question/:id" component={SingleQuestionPage} />
             <Route exact path="/list" component={OwnerQuestionsPage} />
