@@ -16,7 +16,6 @@ class ListUseCaseTest {
      QuestionRepository repository;
      ListUseCase listUseCase;
 
-
     @BeforeEach
     public void setup(){
         MapperUtils mapperUtils = new MapperUtils();

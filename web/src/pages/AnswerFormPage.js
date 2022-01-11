@@ -5,6 +5,7 @@ import {  fetchQuestion, postAnswer } from '../actions/questionActions'
 import { connect } from 'react-redux'
 import { Question } from '../components/Question'
 import JoditEditor from 'jodit-react'
+import firebase from '../firebase/firebase_config'
 
 const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, userId }) => {
     const { register, handleSubmit } = useForm();
