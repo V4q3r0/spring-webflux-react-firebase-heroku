@@ -4,22 +4,26 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 const auth = firebase.auth();
 
-
-
-const Profile = () => {
+const Profile = ({ dispatch }) => {
     const [user] = useAuthState(auth);
     const [name, setName] = useState(user.displayName);
     const [email, setEmail] = useState(user.email);
+    const [photoURL, setPhotoURL] = useState(user.photoURL);
     const [result, setResult] = useState("")
     const actualizarDatos = (e) => {
         e.preventDefault();
         user.updateProfile({
             displayName: name,
-            email: email
+            photoURL: photoURL
             }).then(() => {
-                setResult("Haz actualizado tus datos personales.")
+                setResult("You have updated your personal data.")
             }).catch((error) => {
-                setResult("Ha ocurrido un error y NO se pudo actualizar tus datos personales.")
+                setResult("An error has occurred and your personal data could NOT be updated.")
+        });
+        user.updateEmail(email).then(() => {
+            setResult("You have updated your personal data.")
+        }).catch((error) => {
+
         });
     }
     return(
@@ -28,7 +32,7 @@ const Profile = () => {
                 <img src={user.photoURL} />
                 <br />
                 <section>
-                    <label>Nombres y Apellidos: </label>
+                    <label>Name and surname: </label>
                     <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 </section>
                 <section>
@@ -36,8 +40,12 @@ const Profile = () => {
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </section>
                 <section>
+                    <label>Imagen URL: </label>
+                    <input type="email" value={photoURL} onChange={(e) => setPhotoURL(e.target.value)} />
+                </section>
+                <section>
                     <button onClick={e => actualizarDatos(e)} type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Actualizar
+                        Update
                     </button>
                 </section>
             </form>
@@ -45,7 +53,7 @@ const Profile = () => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel"><b>Actualización de datos</b></h5>
+                            <h5 className="modal-title" id="exampleModalLabel"><b>Data update</b></h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">

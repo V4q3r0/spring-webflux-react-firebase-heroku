@@ -1,12 +1,13 @@
 import React from 'react'
 
-export const Answer = ({ answer, userId, questionId, onDelete }) => (
+export const Answer = ({ answer, userId, question, onDelete }) => {
+  return(
   <aside className="answer">
     <section>
       <p style={{textAling: 'left'}}>{answer.answer}</p>
     </section>
     <section>
-      {userId === answer.userId ?
+      {userId === question.userId ?
         <button className='btn btn-danger' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
           DELETE
         </button>
@@ -25,10 +26,10 @@ export const Answer = ({ answer, userId, questionId, onDelete }) => (
           </div>
           <div className="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => onDelete(answer.questionId, questionId)}>Confirm</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={() => onDelete(answer.questionId, question.id)}>Confirm</button>
           </div>
         </div>
       </div>
     </div>
   </aside>
-)
+)}

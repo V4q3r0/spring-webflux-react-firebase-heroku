@@ -31,12 +31,12 @@ const SingleQuestionPage = ({
 
   const renderAnswers = () => {
     return (question.answers && question.answers.length) ? question.answers.map(answer => (
-      <Answer key={answer.id} answer={answer} userId={userId} questionId={question.id} onDelete={onDelete} />
+      <Answer key={answer.id} answer={answer} userId={userId} question={question} onDelete={onDelete} />
     )) : <p>Empty answer!</p>;
   }
 
   return (
-    <section>
+    <section className="content-question-answers">
       {renderQuestion()}
       {userId && <Link to={"/answer/" + id} className="button right">
         Reply

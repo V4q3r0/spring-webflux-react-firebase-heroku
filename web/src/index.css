@@ -1,11 +1,11 @@
+
 html {
   min-height: 100%;
   position: relative;
 }
 
 body {
-    margin: 0;
-    margin-bottom: 20%;
+    margin-bottom: 25%;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -16,7 +16,8 @@ body {
   }
   
   nav {
-    display: flex;
+    width: 100%;
+    display: inline-flex;
     align-items: center;
     padding: 2rem 0;
     background: #111;
@@ -39,8 +40,16 @@ body {
     border-radius: 4px;
   }
 
-  nav .profile {
-    margin-left: 25%;
+  nav .find {
+    margin-left:
+  }
+
+  nav .findPri {
+    width: 200%;
+  }
+
+  nav .findPri input {
+    width: 100%
   }
   
   nav a:first-of-type {
@@ -139,7 +148,7 @@ body {
     background: #111;
     bottom: 0;
     width: 100%;
-    height: 20%;
+    height: 160px;
   }
 
   .icon-redSocial img{
@@ -172,4 +181,10 @@ body {
   .data-profile input {
     width: 60%;
     right: 0;
+  }
+
+  /* estilos para ver todas las respuestas */
+
+  .content-question-answers{
+    margin-bottom: ;
   }

@@ -1,19 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import {  fetchQuestion, postAnswer } from '../actions/questionActions'
 import { connect } from 'react-redux'
 import { Question } from '../components/Question'
+import JoditEditor from 'jodit-react'
 
 const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, userId }) => {
     const { register, handleSubmit } = useForm();
     const { id } = match.params
+     const [content, setContent] = useState("");
     const history = useHistory();
 
     const onSubmit = data => {
-        data.userId =  userId;
-        data.questionId = id;
-        dispatch(postAnswer(data));
+        if(content != ""){
+            data.userId =  userId;
+            data.answer = content.slice(3, -4)
+            data.questionId = id;
+            dispatch(postAnswer(data));
+        }    
     };
 
     useEffect(() => {
@@ -42,7 +47,12 @@ const FormPage = ({ dispatch, loading, redirect, match,hasErrors, question, user
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label for="answer">Answer</label>
-                    <textarea id="answer" {...register("answer", { required: true, maxLength: 300 })} />
+                    <JoditEditor
+                        id="question"
+                        tabIndex={1}
+                        onBlur={newContent => setContent(newContent)} 
+                        //onChange={newContent => {setContent(newContent)}}
+                    />
                 </div>
                 <button type="submit" className="button" disabled={loading} >{
                     loading ? "Saving ...." : "Save"

@@ -4,7 +4,7 @@ export const Footer = () => (
     <footer style={{color: 'white', fontSize: '1.2em'}}>
         <section>
             <section>
-                <h4>Siguenos en nuestras redes sociales!!</h4>
+                <h4>Follow us on our social networks!!</h4>
             </section>
             <section className="icon-redSocial">
                 <img src="https://img.icons8.com/color/48/000000/facebook.png"/>
@@ -15,12 +15,12 @@ export const Footer = () => (
                 <img src="https://img.icons8.com/color/48/000000/tiktok--v2.png"/>
             </section>
             <section>
-                <p>EsteCorreo@NoExiste.com - <a className="legal">Aviso legal</a></p>
+                <p>EsteCorreo@NoExiste.com - <a className="legal">Legal warning</a></p>
             </section>
         </section>
         <section>
-            <p>Está página se realizó con fines de entrenimiento, no contiene contenido exclusivo y cualquier referencia puede ser encontrada en la web.</p>
-            <span>&copy; Realizado por FACJ</span>
+            <p>This page is made for entertainment purposes, it does not contain exclusive content and any reference can be found on the web.</p>
+            <span>&copy; Made by FACJ</span>
         </section>
     </footer>
 )
