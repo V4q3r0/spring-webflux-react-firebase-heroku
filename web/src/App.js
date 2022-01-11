@@ -69,28 +69,21 @@ const App = ({ dispatch }) => {
 
 function Register() {
   const [userRegistro, setUserRegistro] = useState({
-    id: "",
     name: "",
     email: "",
     password: "",
     photoURL: ""
   })
-  const addData = (user) => {
-    user.updateProfile({
-      displayName: userRegistro.name,
-      photoURL: userRegistro.photoURL
-    }).then(() => {
-      console.log(user)
-    }).catch((error) => {
-      // An error occurred
-      // ...
-    });
-  }
   const registerUser = () => {
     auth.createUserWithEmailAndPassword(userRegistro.email, userRegistro.password)
     .then((currentUser) => {
-      userRegistro.id = currentUser.user.uid;
-      addData(currentUser.user)
+      currentUser.user.updateProfile({
+        displayName: userRegistro.name,
+        photoURL: userRegistro.photoURL
+      }).then(() => {
+      }).catch((error) => {
+        alert(error)
+      })
     })
     .catch((error) => {
       //Error con el inicio de sessión
